@@ -1,4 +1,4 @@
-// src/app/login/page.tsx
+// src/app/registracia/page.tsx
 
 "use client";
 
@@ -6,22 +6,24 @@ import * as React from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const router = useRouter();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
 
-  const handleLogin = (event: React.FormEvent) => {
+  const handleRegister = (event: React.FormEvent) => {
     event.preventDefault();
-    
-    // Add your login logic here (e.g., calling an API or using NextAuth)
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    // Add registration logic here, e.g., call an API
     console.log("Email:", email, "Password:", password);
 
-    // Assume login is successful and set logged-in status
-    localStorage.setItem("isLoggedIn", "true"); // Save login status in localStorage
-
-    // After login, redirect to the profile page
-    router.push("/profil"); 
+    // After successful registration, redirect to login page or profile
+    router.push("/login"); // Change this to your desired route after registration
   };
 
   return (
@@ -35,9 +37,9 @@ export default function LoginPage() {
       }}
     >
       <Typography variant="h4" gutterBottom>
-        Login
+        Register
       </Typography>
-      <form onSubmit={handleLogin} style={{ width: "100%", maxWidth: "400px" }}>
+      <form onSubmit={handleRegister} style={{ width: "100%", maxWidth: "400px" }}>
         <TextField
           label="Email"
           variant="outlined"
@@ -55,8 +57,17 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <TextField
+          label="Confirm Password"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
-          Login
+          Register
         </Button>
       </form>
     </Box>
