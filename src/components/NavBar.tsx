@@ -4,14 +4,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useRouter } from "next/navigation";
-import HomeIcon from '@mui/icons-material/Home';
 import { Home } from "@mui/icons-material";
 
 export default function SimpleBottomNavigation() {
@@ -67,7 +64,7 @@ export default function SimpleBottomNavigation() {
         value={value}
         onChange={(event, newValue) => handleNavigation(newValue)}
       >
-        <BottomNavigationAction label="Home" icon={<Home />} />
+        <BottomNavigationAction key="Domov" label="Home" icon={<Home/>} />
 
         <BottomNavigationAction label="Prispevky" icon={<FavoriteIcon />} />
 

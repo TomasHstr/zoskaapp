@@ -23,7 +23,7 @@ export default function RegisterPage() {
     console.log("Email:", email, "Password:", password);
 
     // After successful registration, redirect to login page or profile
-    router.push("/login"); // Change this to your desired route after registration
+    router.push("/auth/prihlasenie"); // Change this to your desired route after registration
   };
 
   return (
