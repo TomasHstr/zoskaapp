@@ -14,7 +14,7 @@ git config --global user.email "email" – zmenit email linknuty na GIT
 git add .
 git remote add origin <github-url>
 
-
+npx prisma studio inicializuje prismu
 
 git commit -m – zobere zmeny ktore sa urobili lokalne a pushne ich do remote repozitara
       
