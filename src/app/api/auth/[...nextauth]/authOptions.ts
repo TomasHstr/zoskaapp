@@ -5,9 +5,6 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "./prisma"
 
-adapter: PrismaAdapter(prisma),
-package.json:   "build": "prisma generate && next build",
-                "postinstall": "prisma generate"
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,6 +13,7 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
+  adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
   pages: {

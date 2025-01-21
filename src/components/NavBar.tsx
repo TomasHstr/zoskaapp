@@ -64,13 +64,30 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction label="Prispevky" icon={<FavoriteIcon />} showLabel />
 
         {!session ? (
-          <>
-            <BottomNavigationAction label="Login" icon={<LoginIcon />} showLabel onClick={() => router.push("/auth/prihlasenie")} />
-            <BottomNavigationAction label="Registracia" icon={<HowToRegIcon />} showLabel onClick={() => router.push("/auth/registracia")} />
-          </>
-        ) : (
-          <BottomNavigationAction label="Log off" icon={<LogoutIcon />} showLabel onClick={handleLogoff} />
-        )}
+  [
+    <BottomNavigationAction 
+      key="login" 
+      label="Login" 
+      icon={<LoginIcon />} 
+      showLabel 
+      onClick={() => router.push("/auth/prihlasenie")} 
+    />,
+    <BottomNavigationAction 
+      key="registracia" 
+      label="Registracia" 
+      icon={<HowToRegIcon />} 
+      showLabel 
+      onClick={() => router.push("/auth/registracia")} 
+    />
+  ]
+) : (
+  <BottomNavigationAction 
+    label="Log off" 
+    icon={<LogoutIcon />} 
+    showLabel 
+    onClick={handleLogoff} 
+  />
+)}
       </BottomNavigation>
     </Box>
   );
