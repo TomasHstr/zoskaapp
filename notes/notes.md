@@ -17,4 +17,3 @@ git remote add origin <github-url>
 npx prisma studio inicializuje prismu
 
 git commit -m – zobere zmeny ktore sa urobili lokalne a pushne ich do remote repozitara
-      
